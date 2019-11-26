@@ -118,7 +118,7 @@ function claim20k($token)
 		}
 	}
 
-echo "Create by Akm Tamvan \n";
+echo "Create by Akm Tamvan Improved by IXCN. Scare? \n";
 echo "Choose Login or Register? Login = 1 & Register = 2: ";
 $type = trim(fgets(STDIN));
 if($type == 2){
