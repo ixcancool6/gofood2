@@ -161,6 +161,7 @@ if ($register == false)
 			echo $claim10 . "\n";
 		}
 	}
+}
 }else if($type == 1){
 echo "It's Login Way\n";
 echo "Input 62 For ID and 1 For US Phone Number\n";
