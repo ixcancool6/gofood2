@@ -147,15 +147,15 @@ if ($register == false)
 		$claim20 = claim20k($verif);
 		$claim15 = claim15k($verif);
 		$claim10 = claim10k($verif);
-		if ($claim20 == true)
+		if ($claim15 == false && $claim10 == false)
 			{
 			echo "Succes to claim 20k Voucher.\n";
 			echo $claim20 . "\n";
-		}elseif ($claim15 == true)
+		}elseif ($claim20 == false && $claim10 == false )
 		{
 			echo "Succes to claim 15k Voucher.\n";
 			echo $claim15 . "\n";
-		}elseif ($claim10 == true)
+		}elseif ($claim20 == false && $claim15 == false )
 		{
 			echo "Succes to claim 10k Voucher.\n";
 			echo $claim10 . "\n";
