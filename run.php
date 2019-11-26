@@ -118,7 +118,7 @@ function claim20k($token)
 		}
 	}
 
-echo "Create by Akm Tamvan Improved by IXCN. Scare? \n";
+echo "Create by Akm Tamvan \n";
 echo "Choose Login or Register? Login = 1 & Register = 2: ";
 $type = trim(fgets(STDIN));
 if($type == 2){
@@ -145,28 +145,20 @@ if ($register == false)
 		{
 		echo "Ready to Claim\n";
 		$claim20 = claim20k($verif);
-		if ($claim20 == false)
+		$claim15 = claim15k($verif);
+		$claim10 = claim10k($verif);
+		if ($claim20 == true)
 			{
-			echo "Failed to claim 20k Voucher.\n";
-			$claim15 = claim15k($verif);
-			if ($claim15 == false){
-				echo "Failed to claim 15k Voucher.\n";
-				$claim10 = claim10k($verif);
-				if ($claim10 == false){
-					echo "Failed to claim 10k Voucher, you are not very lucky i guess. try to check new voucher code.\n";
-				}
-					else{
-							echo $claim10 . "\n";
-							}
-			}
-				else{
-						echo $claim15 . "\n";
-						}
-			}
-		  else
-			{
+			echo "Succes to claim 20k Voucher.\n";
 			echo $claim20 . "\n";
-			}
+		}elseif ($claim15 == true)
+		{
+			echo "Succes to claim 15k Voucher.\n";
+			echo $claim15 . "\n";
+		}elseif ($claim10 == true)
+		{
+			echo "Succes to claim 10k Voucher.\n";
+			echo $claim10 . "\n";
 		}
 	}
 }else if($type == 1){
