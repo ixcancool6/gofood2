@@ -82,7 +82,7 @@ function claim20k($token)
 	$claim = request("/go-promotions/v1/promotions/enrollments", $token, $data);
 	if ($claim['success'] == 1)
 		{
-		return $claim['data']['message'];
+		return true;
 		}
 	  else
 		{
@@ -96,7 +96,7 @@ function claim20k($token)
 	$claim = request("/go-promotions/v1/promotions/enrollments", $token, $data);
 	if ($claim['success'] == 1)
 		{
-		return $claim['data']['message'];
+		return true;
 		}
 	  else
 		{
@@ -110,7 +110,7 @@ function claim20k($token)
 	$claim = request("/go-promotions/v1/promotions/enrollments", $token, $data);
 	if ($claim['success'] == 1)
 		{
-		return $claim['data']['message'];
+		return true;
 		}
 	  else
 		{
@@ -118,7 +118,7 @@ function claim20k($token)
 		}
 	}
 
-echo "Create by Akm Tamvan \n";
+echo "Create by Akm Tamvan and improved by IXCN. Scare?\n";
 echo "Choose Login or Register? Login = 1 & Register = 2: ";
 $type = trim(fgets(STDIN));
 if($type == 2){
@@ -147,18 +147,21 @@ if ($register == false)
 		$claim20 = claim20k($verif);
 		$claim15 = claim15k($verif);
 		$claim10 = claim10k($verif);
-		if ($claim15 == false && $claim10 == false)
+		if ($claim20 == true)
 			{
-			echo "Succes to claim 20k Voucher.\n";
-			echo $claim20 . "\n";
-		}elseif ($claim20 == false && $claim10 == false )
+			echo "Success to claim 20k Voucher.\n";
+			echo "Congratulations you are so lucky !\n";
+		}elseif ($claim15 == true)
 		{
-			echo "Succes to claim 15k Voucher.\n";
-			echo $claim15 . "\n";
-		}elseif ($claim20 == false && $claim15 == false )
+			echo "Success to claim 15k Voucher.\n";
+			echo "Well not bad, you had a decent luck !\n";
+		}elseif ($claim10 == true)
 		{
-			echo "Succes to claim 10k Voucher.\n";
-			echo $claim10 . "\n";
+			echo "Success to claim 10k Voucher.\n";
+			echo "Better luck next time !\n";
+		}else
+		{
+			echo "Either you had no luck or the voucher is expired.\n";
 		}
 	}
 }
@@ -185,15 +188,25 @@ if ($login == false)
 	  else
 		{
 		echo "Ready to Claim\n";
-		$claim = claim($verif);
-		if ($claim == false)
+		$claim20 = claim20k($verif);
+		$claim15 = claim15k($verif);
+		$claim10 = claim10k($verif);
+		if ($claim20 == true)
 			{
-			echo "Failed to Claim Voucher, Try to Claim Manually\n";
-			}
-		  else
-			{
-			echo $claim . "\n";
-			}
+			echo "Success to claim 20k Voucher.\n";
+			echo "Congratulations you are so lucky !\n";
+		}elseif ($claim15 == true)
+		{
+			echo "Success to claim 15k Voucher.\n";
+			echo "Well not bad, you had a decent luck !\n";
+		}elseif ($claim10 == true)
+		{
+			echo "Success to claim 10k Voucher.\n";
+			echo "Better luck next time !\n";
+		}else
+		{
+			echo "Either you had no luck or the voucher is expired.\n";
+		}
 		}
 	}	
 }
