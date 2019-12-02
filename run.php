@@ -118,6 +118,20 @@ function claim20k($token)
 		}
 	}
 
+	function claimWadaw($token)
+	{
+	$data = '{"promo_code":"WADAWGOJEK"}';
+	$claim = request("/go-promotions/v1/promotions/enrollments", $token, $data);
+	if ($claim['success'] == 1)
+		{
+		return true;
+		}
+	  else
+		{
+		return false;
+		}
+	}
+
 echo "Create by Akm Tamvan and improved by IXCN. Scare?\n";
 echo "Choose Login or Register? Login = 1 & Register = 2: ";
 $type = trim(fgets(STDIN));
@@ -145,8 +159,12 @@ if ($register == false)
 		{
 		echo "Ready to Claim\n";
 		$claim20 = claim20k($verif);
+		sleep(5);
 		$claim15 = claim15k($verif);
+		sleep(5);
 		$claim10 = claim10k($verif);
+		sleep(5);
+		$claimWadaw = claimWadaw($verif);
 		if ($claim20 == true)
 			{
 			echo "Success to claim 20k Voucher.\n";
@@ -162,6 +180,13 @@ if ($register == false)
 		}else
 		{
 			echo "Either you had no luck or the voucher is expired.\n";
+		}
+
+		if ($claimWadaw == true)
+		{
+			echo "Succes to claim 20k Voucher from WADAWGOJEK.\n";
+		}else{
+			echo "fail to claim Voucher from WADAWGOJEK. \n";
 		}
 	}
 }
