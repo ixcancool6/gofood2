@@ -78,7 +78,7 @@ function veriflogin($otp, $token)
 	//Claim Function for 10-20k
 function claim20k($token)
 	{
-	$data = '{"promo_code":"GOFOODSANTAI19"}';
+	$data = '{"promo_code":"PAKEGOFOOD"}';
 	$claim = request("/go-promotions/v1/promotions/enrollments", $token, $data);
 	if ($claim['success'] == 1)
 		{
@@ -159,36 +159,37 @@ if ($register == false)
 		{
 		echo "Ready to Claim\n";
 		$claim20 = claim20k($verif);
-		sleep(5);
-		$claim15 = claim15k($verif);
-		sleep(5);
-		$claimPraktis = claimPraktis($verif);
-		sleep(5);
-		$claim10 = claim10k($verif);
+		// sleep(5);
+		// $claim15 = claim15k($verif);
+		// sleep(5);
+		// $claimPraktis = claimPraktis($verif);
+		// sleep(5);
+		// $claim10 = claim10k($verif);
 		  
 		if ($claim20 == true)
 			{
-			echo "Success to claim 20k Voucher GOFOODSANTAI19.\n";
+			echo "Success to claim 20k Voucher PAKEGOFOOD.\n";
 			echo "Congratulations you are so lucky !\n";
-		}elseif ($claim15 == true)
-		{
-			echo "Success to claim 15k Voucher GOFOODSANTAI11.\n";
-			echo "Well not bad, you had a decent luck !\n";
-		}elseif ($claim10 == true)
-		{
-			echo "Success to claim 10k Voucher GOFOODSANTAI08.\n";
-			echo "Better luck next time !\n";
-		}else
-		{
-			echo "Either you had no luck or the voucher is expired.\n";
 		}
+		// elseif ($claim15 == true)
+		// {
+		// 	echo "Success to claim 15k Voucher GOFOODSANTAI11.\n";
+		// 	echo "Well not bad, you had a decent luck !\n";
+		// }elseif ($claim10 == true)
+		// {
+		// 	echo "Success to claim 10k Voucher GOFOODSANTAI08.\n";
+		// 	echo "Better luck next time !\n";
+		// }else
+		// {
+		// 	echo "Either you had no luck or the voucher is expired.\n";
+		// }
 
-		if ($claimPraktis == true)
-		{
-			echo "Succes to claim 20k Voucher from GOFOODPRAKTIS19.\n";
-		}else{
-			echo "fail to claim Voucher from GOFOODPRAKTIS19. \n";
-		}
+		// if ($claimPraktis == true)
+		// {
+		// 	echo "Succes to claim 20k Voucher from GOFOODPRAKTIS19.\n";
+		// }else{
+		// 	echo "fail to claim Voucher from GOFOODPRAKTIS19. \n";
+		// }
 	}
 }
 }else if($type == 1){
