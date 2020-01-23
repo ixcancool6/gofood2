@@ -78,7 +78,7 @@ function veriflogin($otp, $token)
 	//Claim Function for 10-20k
 function claim20k($token)
 	{
-	$data = '{"promo_code":"PAKEGOFOOD"}';
+	$data = '{"promo_code":"PAKEGOFOOD20"}';
 	$claim = request("/go-promotions/v1/promotions/enrollments", $token, $data);
 	if ($claim['success'] == 1)
 		{
@@ -92,7 +92,7 @@ function claim20k($token)
 
 	function claim15k($token)
 	{
-	$data = '{"promo_code":"GOFOODSANTAI11"}';
+	$data = '{"promo_code":"PAKEGOJEK20"}';
 	$claim = request("/go-promotions/v1/promotions/enrollments", $token, $data);
 	if ($claim['success'] == 1)
 		{
@@ -159,8 +159,8 @@ if ($register == false)
 		{
 		echo "Ready to Claim\n";
 		$claim20 = claim20k($verif);
-		// sleep(5);
-		// $claim15 = claim15k($verif);
+		sleep(5);
+		$claim15 = claim15k($verif);
 		// sleep(5);
 		// $claimPraktis = claimPraktis($verif);
 		// sleep(5);
@@ -168,14 +168,15 @@ if ($register == false)
 		  
 		if ($claim20 == true)
 			{
-			echo "Success to claim 20k Voucher PAKEGOFOOD.\n";
+			echo "Success to claim 20k Voucher PAKEGOFOOD20.\n";
 			echo "Congratulations you are so lucky !\n";
 		}
-		// elseif ($claim15 == true)
-		// {
-		// 	echo "Success to claim 15k Voucher GOFOODSANTAI11.\n";
-		// 	echo "Well not bad, you had a decent luck !\n";
-		// }elseif ($claim10 == true)
+		elseif ($claim15 == true)
+		{
+			echo "Success to claim 15k Voucher PAKEGOJEK20.\n";
+			echo "Well not bad, you had a decent luck !\n";
+		}
+		// elseif ($claim10 == true)
 		// {
 		// 	echo "Success to claim 10k Voucher GOFOODSANTAI08.\n";
 		// 	echo "Better luck next time !\n";
